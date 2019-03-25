@@ -1,0 +1,50 @@
+.header-kmutnb{
+    background-image: url("Header.jpg");
+    width: 100%;
+    height: 250px;
+  }
+  .bs_table{
+    margin:0;
+
+  }
+  .bs_table thead tr th{
+    color:#fff;
+    background-color: #999;
+    
+  }
+  .btnSearch{
+    width:250px;
+  }
+  .bs-product-card{
+    min-height: 290px;
+    text-align: center;
+    position:relative;
+  }
+  .bs-product-card img{
+    height: 90px;
+    margin-top:20px;
+  }
+  .bs-product-card .btn-success{
+    position: absolute;
+    bottom: 15px;
+    text-align: center;
+    width:85%;
+  
+  }
+  .bs-product-card h4{
+    text-align: left;
+  }
+  .bs-product-card .form-group{
+    text-align:left;
+  }
+  .bs-product-card .form-group strong{
+    font-size:16px;
+  }
+  .content-vdo {
+    /* position: fixed; */
+    /* bottom: 0; */
+    /* background: rgba(0, 0, 0, 0.5); */
+    /* color: #f1f1f1; */
+    /* width: 100%; */
+    /* padding: 20px; */
+  }
