@@ -29,4 +29,7 @@ class HomeController extends Controller
         Auth::logout();
         return redirect('home');
     }
+    public function view_chart(){
+        return view('/chart');
+    }
 }

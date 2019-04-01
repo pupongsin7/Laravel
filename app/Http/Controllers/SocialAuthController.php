@@ -23,8 +23,9 @@ class SocialAuthController extends Controller
                     'name' => $name,
                     'password' => $secret,
                 ]);
+                $user->save();
             }
-            $user->save();
+            
             if(Auth::attempt(['name' => $name, 'password' => $password])){
                 return redirect()->to('/home');
             }

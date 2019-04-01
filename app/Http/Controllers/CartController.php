@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Session;
+use Input;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
@@ -44,5 +45,31 @@ class CartController extends Controller
         $cart_items[$id]['qty'] = $qty;
         Session::put('cart_items',$cart_items);
         return redirect('cart/view');
+    }
+    public function checkout(){
+        $cart_items = Session::get('cart_items');
+        return view('cart/checkout',compact('cart_items'));
+    }
+    public function complete(){
+        $cart_items = Session::get('cart_items');
+        $cus_name = Input::get('cus_name');
+        $cus_email = Input::get('cus_email');
+        $po_no = 'PO'.date("Ymd");
+        $po_date = date("Y-m-d H:i:s");
+        $total_amount = 0;
+        // return view('cart/complete',compact('cart_items','cus_name','cus_email','po_no','po_date','total_amount')); แบบธรรมดา
+        //Pdf render
+        $html_output = view('cart/complete',compact('cart_items','cus_name','cus_email','po_no','po_date','total_amount'))->render();
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->debug = true;
+        $mpdf->WriteHTML($html_output);
+        $mpdf->Output('output.pdf','I');
+
+        return $resp->widthHeader("Content-type","application/pdf");
+    }
+    public function finish_order(){
+        $cart_items = Session::get('cart_items');
+        Session::remove('cart_items');
+        return redirect('/home');
     }
 }

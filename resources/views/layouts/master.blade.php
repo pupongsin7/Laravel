@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="{{asset('css/kmutnb.css')}}">
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('js/Chart.min.js')}}"></script>
     <script src="{{asset('js/angular.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('vendor/toastr/toastr.min.js')}}"></script>
@@ -30,7 +31,7 @@
                     @guest
                     @else
                     <li><a href="{{ URL::to('product/') }}">จัดการข้อมูลสินค้า</a></li>
-                    <li><a href="#">รายงาน</a></li>
+                    <li><a href="{{ URL::to('chart/') }}">รายงาน</a></li>
                     @endguest
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

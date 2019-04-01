@@ -41,8 +41,13 @@ Route::get('/cart/update/{id}/{qty}','CartController@updateCart')->middleware('a
 Route::get('/logout','HomeController@logout')->middleware('auth');
 
 Auth::routes();
-
+Route::get('/cart/checkout','CartController@checkout')->middleware('auth');
+Route::get('/cart/complete','CartController@complete')->middleware('auth');
+Route::get('/cart/finish','CartController@finish_order')->middleware('auth');
+Route::get('/chart','HomeController@view_chart')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/redirect','SocialAuthController@redirect');
 Route::get('/callback','SocialAuthController@callback');
+
