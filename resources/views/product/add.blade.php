@@ -10,7 +10,7 @@
             <strong> <h1 align="center">เพิ่มสินค้า</h1></strong>
         </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="background-color: rgba(255,255,255,0.8);">
         <ul class="breadcrumb">
             <li><a href="{{ URL::to('product') }}">หน้าแรก</a></li>
             <li class="active"> เพิ่มสินค้า</li>

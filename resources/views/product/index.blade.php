@@ -9,7 +9,7 @@
             <strong>รายการสินค้า</strong>
         </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="background-color: rgba(255,255,255,0.8);">
     <center><form action="{{URL::to('product/search')}}" method="POST" class="form-inline">
         {{csrf_field()}}  {{--กลไลรักษาความปลอดภัยในการส่ง form แบบ post--}}
         <table><tr>
@@ -24,7 +24,7 @@
         <span style="float:right;"><h6>แสดงข้อมูลจำนวน {{count($products)}} รายการ</h6></span>
     
     
-    <table class="table table-bordered bs_table">
+    <table class="table table-bordered ">
         <thead>
             <th>รูปภาพ</th>
             <th>รหัส</th>
