@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/toastr/toastr.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('css/kmutnb.css')}}">
-    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('js/Chart.min.js')}}"></script>
-    <script src="{{asset('js/angular.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('vendor/toastr/toastr.min.js')}}"></script>
 </head>
 
 <body style ="background-image: url({{asset('bg/bg-home3.jpg')}}); ">
+    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('js/Chart.min.js')}}"></script>
+    <script src="{{asset('js/angular.min.js')}}"></script>
+    {{-- <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script> --}}
+    {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+    <script src="{{asset('vendor/toastr/toastr.min.js')}}"></script>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -40,9 +40,12 @@
                 <li><a href="{{route('register')}}">ลงทะเบียน</a></li>
                 @else
                 <li><a href="{{URL::to('cart/view')}}"><i class="fa fa-shopping-cart"></i>ตะกร้า <span class="label label-danger">{!! count(Session::get('cart_items')) !!}</span></a></li>
-                <li class="dropdown"><a href="#" data-toggle="dropdown" role="button">{{Auth::user()->name}}<span class="caret"></span></a></li>
-                <li class="dropdown"><a href="{{URL::to('/logout')}}" >logout</a></li>
-                
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" role="button">{{Auth::user()->name}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown"><a href="{{URL::to('/logout')}}" >logout</a></li>
+                    </ul>
+                  </li>
                 {{-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
